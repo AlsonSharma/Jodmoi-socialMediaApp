@@ -1,0 +1,307 @@
+
+
+.container {
+    min-height: 100vh;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Animated floating circles background */
+  .container::before {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    top: -50px;
+    left: -50px;
+    animation: float 25s infinite linear;
+  }
+  
+  .container::after {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: rgba(255, 230, 109, 0.1);
+    border-radius: 50%;
+    bottom: -150px;
+    right: -150px;
+    animation: float 30s infinite linear;
+  }
+  
+  @keyframes float {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(100px, 50px) rotate(90deg); }
+    50% { transform: translate(50px, 100px) rotate(180deg); }
+    75% { transform: translate(-50px, 50px) rotate(270deg); }
+    100% { transform: translate(0, 0) rotate(360deg); }
+  }
+  
+  .cardContainer {
+    display: flex;
+    margin: auto;
+    margin-top: 200px;
+    max-width: 1000px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 30px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    transform-style: preserve-3d;
+  }
+  
+  .cardContainer_left {
+    flex: 1;
+    padding: 4rem;
+    background: rgba(255, 255, 255, 0.9);
+  }
+  
+  .cardContainer_right {
+    flex: 1;
+    background: linear-gradient(45deg, #ff6b6b, #ff9e6b);
+    padding: 4rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease;
+  }
+  
+  .cardContainer_right::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+    transform: rotate(45deg);
+    animation: shine 5s infinite;
+  }
+  
+  @keyframes shine {
+    0% { left: -50%; }
+    100% { left: 150%; }
+  }
+  
+  .cardleft_heading {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #2a2a2a;
+    margin-bottom: 2rem;
+    font-family: 'Space Grotesk', sans-serif;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .cardleft_heading::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60%;
+    height: 4px;
+    background: #4ecdc4;
+    transition: all 0.3s ease;
+  }
+  
+  .inputContainers {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .inputRow {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .inputField {
+    width: 100%;
+    padding: 1.2rem;
+    border: none;
+    background: rgba(78, 205, 196, 0.1);
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .inputField:focus {
+    outline: none;
+    background: rgba(78, 205, 196, 0.2);
+    box-shadow: 0 0 0 2px #4ecdc4;
+  }
+  
+  .buttonWithOutline {
+    background: #ff6b6b;
+    color: white;
+    padding: 1.2rem 2rem;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+    text-align: center;
+  }
+  
+  .buttonWithOutline:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255,107,107,0.3);
+  }
+  
+  .buttonWithOutline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,0.4),
+      transparent
+    );
+    transition: 0.5s;
+  }
+  
+  .buttonWithOutline:hover::before {
+    left: 100%;
+  }
+  
+  
+  
+  /* Right side content animations */
+  .cardContainer_right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-align: center;
+    perspective: 1000px;
+  }
+  
+  .cardContainer_right::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    bottom: -50px;
+    right: -50px;
+    animation: pulse 4s infinite;
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(0.8); opacity: 0.5; }
+    50% { transform: scale(1.2); opacity: 0.2; }
+    100% { transform: scale(0.8); opacity: 0.5; }
+  }
+  
+  .cardContainer {
+    transition: transform 0.8s ease-in-out;
+  }
+  
+  .cardContainer:hover {
+    transform: rotateY(10deg) rotateX(5deg);
+  }
+  
+  @media (max-width: 768px) {
+    .cardContainer {
+      flex-direction: column;
+      margin: 2rem;
+    }
+    
+    .cardContainer_right {
+      padding: 2rem;
+      font-size: 2rem;
+    }
+  }
+
+  
+    @media (max-width: 440px) {
+     
+      .container {
+        padding: 1rem;
+      }
+    
+     
+      .container::before {
+        width: 200px;
+        height: 200px;
+        top: -20px;
+        left: -20px;
+        animation: float 20s infinite linear;
+      }
+    
+      .container::after {
+        width: 300px;
+        height: 300px;
+        bottom: -50px;
+        right: -50px;
+        animation: float 25s infinite linear;
+      }
+    
+      
+      .cardContainer {
+        flex-direction: column;
+        margin: 1rem;
+        margin-top: 100px;
+        border-radius: 20px; 
+      }
+    
+    
+      .cardContainer_left,
+      .cardContainer_right {
+        padding: 2rem;
+      }
+    
+     
+      .cardleft_heading {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+    
+      
+      .inputField {
+        padding: 1rem;
+        font-size: 0.9rem;
+      }
+    
+      
+      .buttonWithOutline {
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+      }
+    
+     
+      .cardContainer_right {
+        font-size: 1.8rem;
+        padding: 1.5rem;
+      }
+    
+     
+      .cardContainer_right::after {
+        width: 100px;
+        height: 100px;
+        bottom: -30px;
+        right: -30px;
+      }
+    
+     
+      .cardContainer:hover {
+        transform: none;
+      }
+    }
+  
