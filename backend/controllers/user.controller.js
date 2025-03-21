@@ -220,7 +220,6 @@ export const commentPost = async(req, res) => {
         }
 
         const post = await Post.findOne({_id: post_id});
-        console.log(post);
 
         if(!post) {
             return res.status(404).json({message: "Post doesn't exist"});

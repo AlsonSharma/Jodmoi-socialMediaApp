@@ -71,7 +71,6 @@ export const deletePost = async(req, res) => {
 
 export const getCommentsByPost = async(req, res) => {
     const {post_id} = req.query;
-    console.log("PostID" + post_id);
 
     try {
         const post = await Post.findOne({_id: post_id});
