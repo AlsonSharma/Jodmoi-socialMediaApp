@@ -1,0 +1,96 @@
+POST http://localhost:8080/register HTTP/1.1
+content-Type: application/json
+
+{
+    "username": "Alson",
+    "password": "123",
+    "email": "alson@gmail.com",
+    "name": "AlsonSharma"
+}
+
+###
+
+POST http://localhost:8080/login HTTP/1.1
+content-Type: application/json
+
+{
+    "email": "arman@gmail.com",
+    "password": "123"
+}
+
+###
+
+POST http://localhost:8080/login HTTP/1.1
+content-Type: application/json
+
+{
+    "email": "alson@gmail.com",
+    "password": "123"
+}
+###
+
+GET http://localhost:8080/get_user_and_profile HTTP/1.1
+content-Type: application/json
+
+{
+   "token": "6eb206f1570e455379d83300eec696270f8e4918c7788625ec99cadf6334beb18dbe5af39ff975814947f8a9e755a3a6feb12c88413fd8e9397085a81bf3332b"
+}
+
+//for alson
+###
+
+GET http://localhost:8080/get_user_and_profile HTTP/1.1
+content-Type: application/json
+
+{
+   "token": "f307f422756c3cb31274ed8b4ad77460de8878f3351df861b3869c90dee5836efbb0b7326e68b674d962f7dfc0beab5205a66d2990cf1effc6b7f1f3021390ed"
+}
+//For Alson
+###
+
+POST http://localhost:8080/update_profile_data HTTP/1.1
+content-Type: application/json
+
+{
+   "token": "45213bd47e57c12d6f9302c8a538608503763a35369eac2cc17544f4fb4582d585be88ad9d8d9ff91e0d8fc81016d3654d953ee34d84c41e1bc26a64a1816d43",
+    "bio":"Hi! I am Alson Sharma",
+  "currentPost": "SD1",
+  "pastWork": [{
+    "company": "Google",
+    "position": "SD1",
+    "years": "3+"
+  }],
+  "education": [
+    {
+        "school": "Penn State University",
+        "degree": "Software Engineering Field",
+        "fieldOfStudy": "2020-2024"
+    }
+  ]
+}
+###
+
+POST http://localhost:8080/update_profile_data HTTP/1.1
+content-Type: application/json
+
+{
+   "token": "73487b65944495fa2f9fa2a4286b2a562cbe0c40ee12bfc8dae81e7896943d155df0c926998e1ef46b551481440a29ce5560f8caafd77bd2a5e58e5c008abe8e",
+    "bio":"Hi! I am Arman Kumar",
+  "currentPost": "SD3",
+  "pastWork": [{
+    "company": "Microsoft",
+    "position": "SD3",
+    "years": "3+"
+  }],
+  "education": [
+    {
+        "school": "Penn State",
+        "degree": "Software Engineering",
+        "fieldOfStudy": "2015-2019"
+    }
+  ]
+}
+
+###
+
+GET http://localhost:8080/user/get_all_users 
