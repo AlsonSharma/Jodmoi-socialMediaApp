@@ -33,7 +33,7 @@
 
 1. **Clone Repository**
    ```bash
-   git clone https://github.com/AlsonSharma/Jodmoi-social-platform.git
+   git clone https://github.com/AlsonSharma/Jodmoi-socialMediaApp.git
 
 2. **Install Dependencies**
 **Frontend**
